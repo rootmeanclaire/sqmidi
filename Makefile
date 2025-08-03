@@ -1,13 +1,13 @@
 ### VARIABLES ###
 # Project Basename
-PROJ_NAME=test
+PROJ_NAME=$(notdir $(CURDIR))
 # Clock Frequency
 F_CLK=12000000
 
 # Verilog Source Files
 SRC=$(wildcard *.v)
 # Lattice Constraint Files
-PCF=$(PROJ_NAME).pcf
+PCF=$(wildcard *.pcf)
 
 # Synthesized Files
 BLIF=$(PROJ_NAME).blif
