@@ -1,5 +1,7 @@
+`timescale 1ns / 1ps
+
 module which_note #(
-	parameter F_CLK = 12_000_000;
+	parameter F_CLK = 12_000_000
 ) (
 	input wire clk,
 	input wire reset,
