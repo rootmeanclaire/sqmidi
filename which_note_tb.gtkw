@@ -1,0 +1,32 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Fri Aug  8 01:24:02 2025
+[*]
+[dumpfile] "/home/clarity/Documents/Embedded/sqmidi/which_note_tb.vcd"
+[dumpfile_mtime] "Fri Aug  8 01:22:25 2025"
+[dumpfile_size] 11806617
+[savefile] "/home/clarity/Documents/Embedded/sqmidi/which_note_tb.gtkw"
+[timestart] 0
+[size] 1920 1009
+[pos] -1 -1
+*-31.500000 5899000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] which_note_tb.
+[sst_width] 276
+[signals_width] 158
+[sst_expanded] 1
+[sst_vpaned_height] 301
+@28
+which_note_tb.audio_a4
+which_note_tb.audio_e5
+@29
+which_note_tb.tone_select[1:0]
+@28
+which_note_tb.audio
+@22
+which_note_tb.uut.midi[6:0]
+@28
+which_note_tb.uut.note_on
+@8022
+which_note_tb.uut.period[20:0]
+[pattern_trace] 1
+[pattern_trace] 0

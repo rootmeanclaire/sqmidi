@@ -7,9 +7,9 @@ module which_note #(
 	input wire reset,
 	input audio,
 	// 7-bit MIDI note value
-	output reg[6:0] midi,
+	output reg[6:0] midi = 0,
 	// High if a note is currently being played, low otherwise
-	output reg note_on
+	output reg note_on = 0
 );
 	// Magic numbers generated along with note period LUT
 	localparam P_MAX = 'h5996;
@@ -19,6 +19,8 @@ module which_note #(
 	reg[20:0] period = 0;
 
 	always @(posedge reset) begin
+		midi <= 0;
+		note_on <= 0;
 		period <= 0;
 	end
 

@@ -80,3 +80,5 @@ test: build_tests
 	$(foreach bin,$(TB_BIN),./$(bin);)
 %_tb: %_tb.sv %.sv
 	iverilog -g2005-sv -o $@ $^
+which_note_tb: which_note_tb.sv which_note.sv mux.v
+	iverilog -g2005-sv -o $@ $^
