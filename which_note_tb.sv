@@ -1,4 +1,4 @@
-`timescale 1us / 1ns
+`timescale 1ns / 10ps
 
 // Note detector testbench
 module which_note_tb #(
@@ -25,7 +25,7 @@ module which_note_tb #(
 
 	// System Clock
 	initial begin
-		$write("clock period is %t\n", 1s / F_CLK / 2);
+		$write("clock period is %0t\n", 1s / F_CLK / 2);
 		forever begin
 			clk = ~clk;
 			#(1s / F_CLK / 2);
@@ -38,6 +38,7 @@ module which_note_tb #(
 	endfunction
 	reg audio_a4 = 0;
 	initial begin
+		$write("A4 period is %0t\n", 1s / 440);
 		forever begin
 			audio_a4 = ~audio_a4;
 			#(1s / 440);
@@ -45,6 +46,7 @@ module which_note_tb #(
 	end
 	reg audio_e5 = 0;
 	initial begin
+		$write("E5 period is %0t\n", 1s / midi_to_freq(76));
 		forever begin
 			audio_e5 = ~audio_e5;
 			#(1s / midi_to_freq(76));
@@ -56,6 +58,7 @@ module which_note_tb #(
 		.a(1'b0),
 		.b(audio_a4),
 		.c(audio_e5),
+		.d(audio_a4 | audio_e5),
 		.select(tone_select),
 		.out(audio)
 	);

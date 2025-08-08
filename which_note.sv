@@ -14,7 +14,7 @@ module which_note #(
 	// Magic numbers generated along with note period LUT
 	localparam P_MAX = 'h5996;
 	localparam MSB = 20;
-	localparam LSB = 6;
+	localparam LSB = 7;
 	// Timer for the current 
 	reg[20:0] period = 0;
 
