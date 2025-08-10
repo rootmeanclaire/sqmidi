@@ -25,7 +25,6 @@ module which_note_tb #(
 
 	// System Clock
 	initial begin
-		$write("clock period is %0t\n", 1s / F_CLK / 2);
 		forever begin
 			clk = ~clk;
 			#(1s / F_CLK / 2);
@@ -38,7 +37,6 @@ module which_note_tb #(
 	endfunction
 	reg audio_a4 = 0;
 	initial begin
-		$write("A4 period is %0t\n", 1s / 440);
 		forever begin
 			audio_a4 = ~audio_a4;
 			#(1s / 440);
@@ -46,7 +44,6 @@ module which_note_tb #(
 	end
 	reg audio_e5 = 0;
 	initial begin
-		$write("E5 period is %0t\n", 1s / midi_to_freq(76));
 		forever begin
 			audio_e5 = ~audio_e5;
 			#(1s / midi_to_freq(76));
@@ -90,16 +87,37 @@ module which_note_tb #(
 		end
 
 		test++;
-		$write("\tTest %0d.%0d: A440...", suite, test);
+		$write("\tTest %0d.%0d: A4 @ 440 Hz...", suite, test);
 		expected_midi = 69;
 		expected_note_on = 1;
 		tone_select = 1;
 		#20ms;
+		$write("\n\t\tFrequency...");
 		if (midi === expected_midi) begin
 			$write("Passed!\n");
 		end else begin
 			$write("Failed! (Expected midi=0x%0h, Got 0x%0h)\n", expected_midi, midi);
 		end
+		$write("\t\tNote On...");
+		if (note_on === expected_note_on) begin
+			$write("Passed!\n");
+		end else begin
+			$write("Failed! (Expected note_on=%0d, Got %0d)\n", expected_note_on, note_on);
+		end
+
+		test++;
+		$write("\tTest %0d.%0d: E5...", suite, test);
+		expected_midi = 76;
+		expected_note_on = 1;
+		tone_select = 2;
+		#20ms;
+		$write("\n\t\tFrequency...");
+		if (midi === expected_midi) begin
+			$write("Passed!\n");
+		end else begin
+			$write("Failed! (Expected midi=0x%0h, Got 0x%0h)\n", expected_midi, midi);
+		end
+		$write("\t\tNote On...");
 		if (note_on === expected_note_on) begin
 			$write("Passed!\n");
 		end else begin
